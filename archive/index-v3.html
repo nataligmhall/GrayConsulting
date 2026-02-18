@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gray Consulting and Management LLC — Strategy, Digital, Systems, and Products.">
+  <meta name="robots" content="index, follow">
+  <title>Gray Consulting &amp; Management</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor"      id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-bar" id="scrollBar"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Gray Consulting</a>
+    <ul class="nav-links">
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#capabilities" class="mob-link">Capabilities</a>
+    <a href="#approach"     class="mob-link">Approach</a>
+    <a href="#contact"      class="mob-link">Contact</a>
+  </div>
+
+  <!-- ============================================================
+       01  HERO
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-radial" id="heroRadial"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-wordmark" aria-label="Gray">
+        <span class="line-wrap">
+          <span class="line-inner">Gray</span>
+        </span>
+      </h1>
+
+      <div class="hero-row">
+        <p class="hero-company-name">Consulting &amp; Management LLC</p>
+        <p class="hero-statement">We shape<br>what's next.</p>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="scroll-cue-line"></div>
+      <span class="scroll-cue-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02  POSITIONING
+  ============================================================ -->
+  <section id="positioning">
+    <aside class="pos-aside reveal">
+      <div class="section-tag">
+        <span class="num">01</span>
+        <span class="rule"></span>
+        <span class="label">Perspective</span>
+      </div>
+    </aside>
+
+    <div class="pos-body">
+      <p class="pos-statement reveal d1">
+        We operate at the edge<br>of what's been defined.
+      </p>
+      <div class="pos-pillars">
+        <p class="pos-pillar reveal d2">Precision without rigidity.</p>
+        <p class="pos-pillar reveal d3">Imagination with purpose.</p>
+        <p class="pos-pillar reveal d4">Questions before answers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03  MANIFESTO
+  ============================================================ -->
+  <section id="manifesto">
+    <p class="manifesto-text reveal">
+      The most consequential work<br>rarely announces itself.
+    </p>
+    <p class="manifesto-credit reveal d3">— Gray Consulting &amp; Management</p>
+  </section>
+
+  <!-- Marquee ticker -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Strategy</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Digital</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Systems</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Products</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Gray Consulting &amp; Management</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Strategy</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Digital</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Systems</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Products</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Gray Consulting &amp; Management</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Strategy</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Digital</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Systems</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Products</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Gray Consulting &amp; Management</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Strategy</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Digital</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Systems</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Products</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Gray Consulting &amp; Management</span>
+      <span class="marquee-item">·</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       04  CAPABILITIES
+  ============================================================ -->
+  <section id="capabilities">
+    <div class="cap-header">
+      <h2 class="cap-title reveal">Capabilities</h2>
+      <div class="section-tag reveal d2">
+        <span class="num">02</span>
+        <span class="rule"></span>
+        <span class="label">What we bring</span>
+      </div>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap-item reveal">
+        <span class="cap-idx">01</span>
+        <h3 class="cap-name">Strategy</h3>
+        <p class="cap-desc">Clarity in complexity.</p>
+      </div>
+      <div class="cap-item reveal d1">
+        <span class="cap-idx">02</span>
+        <h3 class="cap-name">Digital</h3>
+        <p class="cap-desc">Built to perform.</p>
+      </div>
+      <div class="cap-item reveal d2">
+        <span class="cap-idx">03</span>
+        <h3 class="cap-name">Systems</h3>
+        <p class="cap-desc">Structure that scales.</p>
+      </div>
+      <div class="cap-item reveal d3">
+        <span class="cap-idx">04</span>
+        <h3 class="cap-name">Products</h3>
+        <p class="cap-desc">Ideas made real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05  APPROACH
+  ============================================================ -->
+  <section id="approach">
+    <aside class="approach-aside reveal">
+      <div class="section-tag">
+        <span class="num">03</span>
+        <span class="rule"></span>
+        <span class="label">Approach</span>
+      </div>
+    </aside>
+
+    <div class="approach-list">
+      <div class="approach-item reveal">
+        <span class="approach-n">01</span>
+        <div class="approach-inner">
+          <h3 class="approach-title">Question before build.</h3>
+          <p class="approach-body">Every engagement begins with deep inquiry. We resist the impulse to act before understanding.</p>
+        </div>
+      </div>
+
+      <div class="approach-item reveal d1">
+        <span class="approach-n">02</span>
+        <div class="approach-inner">
+          <h3 class="approach-title">Rigor meets intuition.</h3>
+          <p class="approach-body">Analytical precision and creative instinct are not opposites — they are collaborators.</p>
+        </div>
+      </div>
+
+      <div class="approach-item reveal d2">
+        <span class="approach-n">03</span>
+        <div class="approach-inner">
+          <h3 class="approach-title">Deliberate. Decisive.</h3>
+          <p class="approach-body">We move thoughtfully, then act with full commitment. Pace is a strategic choice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06  IDENTITY
+  ============================================================ -->
+  <section id="identity">
+    <p class="identity-statement reveal">
+      Gray Consulting and Management LLC<br>
+      is a privately held firm operating<br>
+      across disciplines and industries.
+    </p>
+    <p class="identity-meta reveal d3">United States &nbsp;&middot;&nbsp; Est. 2023</p>
+  </section>
+
+  <!-- ============================================================
+       07  CONTACT
+  ============================================================ -->
+  <section id="contact">
+    <div class="contact-masthead">
+      <h2 class="contact-heading reveal">Let's<br>Connect.</h2>
+      <div class="contact-info reveal d2">
+        <span class="contact-info-label">Direct</span>
+        <a href="mailto:contact@grayconsultingmanagement.com" class="contact-email-link">
+          contact@grayconsultingmanagement.com
+        </a>
+        <span class="contact-location-txt">United States</span>
+      </div>
+    </div>
+
+    <div class="contact-body">
+      <p class="contact-pitch reveal">
+        We're selective about the<br>
+        work we take on. Tell us<br>
+        what you're building.
+      </p>
+
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+        <div class="form-field reveal d1">
+          <label class="form-label" for="fname">Name</label>
+          <input class="form-input" type="text" id="fname" name="name"
+                 required placeholder="Your name" autocomplete="name">
+        </div>
+
+        <div class="form-field reveal d2">
+          <label class="form-label" for="femail">Email</label>
+          <input class="form-input" type="email" id="femail" name="email"
+                 required placeholder="your@email.com" autocomplete="email">
+        </div>
+
+        <div class="form-field reveal d3">
+          <label class="form-label" for="fmsg">Message</label>
+          <textarea class="form-textarea" id="fmsg" name="message"
+                    required placeholder="What are you working on?" rows="4"></textarea>
+        </div>
+
+        <div class="reveal d4">
+          <button type="submit" class="form-submit">Send Message</button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          Message sent. We'll be in touch.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       08  LEGAL
+  ============================================================ -->
+  <section id="legal">
+    <div class="legal-intro">
+      <div class="section-tag">
+        <span class="num">05</span>
+        <span class="rule"></span>
+        <span class="label">Legal</span>
+      </div>
+    </div>
+
+    <div class="legal-grid">
+      <div class="legal-block">
+        <h3>Privacy Policy</h3>
+        <p>Gray Consulting and Management LLC does not use cookies or tracking technologies. Any information you voluntarily provide via our contact form is used solely to respond to your inquiry and is never shared with third parties. We are committed to handling your data with discretion and care.</p>
+      </div>
+      <div class="legal-block">
+        <h3>Terms of Service</h3>
+        <p>The information presented on this website is for general informational purposes only. Gray Consulting and Management LLC makes no representations regarding the completeness or accuracy of the content herein. All intellectual property on this site remains the exclusive property of the company.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <p class="footer-brand">&copy; 2026 Gray Consulting and Management LLC</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="#legal">Privacy</a>
+      <a href="#legal">Terms</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
