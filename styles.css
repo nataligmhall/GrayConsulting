@@ -313,7 +313,7 @@ nav.hidden-nav {
   padding-bottom: 0.15em;
 }
 
-.hero-wordmark .line-wrap  { display: block; overflow: hidden; padding-bottom: 0.15em; }
+.hero-wordmark .line-wrap  { display: block; overflow: hidden; padding-bottom: 0.28em; }
 .hero-wordmark .line-inner {
   display: block;
   transform: translateY(115%);
@@ -372,15 +372,6 @@ nav.hidden-nav {
   animation: pulseDown 2s var(--ease-out) 2.5s infinite;
 }
 
-.scroll-cue-text {
-  font-family: var(--font-body);
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
 
 /* ========================================
    SECTION: POSITIONING
