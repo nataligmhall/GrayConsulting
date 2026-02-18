@@ -1,317 +1,1445 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gray Consulting and Management LLC | Professional Excellence</title>
-    <meta name="description" content="Strategic management and operational consulting services for professional enterprises.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .serif { font-family: 'Playfair Display', serif; }
-        .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-        section {
-            scroll-margin-top: 5rem;
-        }
-        .nav-link-active {
-            color: #1e293b;
-            border-bottom: 2px solid #1e293b;
-        }
-        /* Success message animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .success-fade {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gray Consulting and Management LLC — Strategy, Digital, Systems, and Products.">
+  <meta name="robots" content="index, follow">
+  <title>Gray Consulting &amp; Management</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       RESET
+    ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ========================================
+       DESIGN TOKENS
+    ======================================== */
+    :root {
+      --bg:           #080808;
+      --bg-alt:       #0e0e0e;
+      --text:         #EDE9E1;
+      --text-muted:   #7A756D;
+      --text-dim:     #3C3935;
+      --border:       rgba(237, 233, 225, 0.09);
+      --border-mid:   rgba(237, 233, 225, 0.16);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+
+      --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ========================================
+       BASE
+    ======================================== */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Film grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.038;
+      pointer-events: none;
+      z-index: 9000;
+    }
+
+    /* ========================================
+       CUSTOM CURSOR
+    ======================================== */
+    .cursor {
+      position: fixed;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s, transform 0.15s var(--ease-out);
+      will-change: left, top;
+    }
+
+    .cursor-ring {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(237, 233, 225, 0.35);
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s var(--ease-out), height 0.4s var(--ease-out),
+                  opacity 0.4s, border-color 0.4s;
+      will-change: left, top;
+    }
+
+    .cursor.hovering       { transform: translate(-50%, -50%) scale(0.2); opacity: 0.4; }
+    .cursor-ring.hovering  { width: 52px; height: 52px; border-color: rgba(237, 233, 225, 0.2); }
+
+    @media (hover: none) {
+      .cursor, .cursor-ring { display: none; }
+      body, button, a, input, textarea { cursor: auto; }
+    }
+
+    /* ========================================
+       SCROLL PROGRESS BAR
+    ======================================== */
+    .scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 0%;
+      background: rgba(237, 233, 225, 0.22);
+      z-index: 200;
+      pointer-events: none;
+      transition: width 0.08s linear;
+    }
+
+    /* ========================================
+       NAVIGATION
+    ======================================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 52px;
+      transition: padding 0.5s var(--ease-out), background 0.5s,
+                  transform 0.5s var(--ease-out), border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      padding: 22px 52px;
+      background: rgba(8, 8, 8, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom-color: var(--border);
+    }
+
+    nav.hidden-nav {
+      transform: translateY(-100%);
+    }
+
+    .nav-logo {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+      opacity: 0.65;
+      transition: opacity 0.3s;
+    }
+
+    .nav-logo:hover { opacity: 1; }
+
+    .nav-links {
+      display: flex;
+      gap: 44px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* Mobile toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--text);
+      transition: transform 0.35s var(--ease-out), opacity 0.35s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 52px;
+      gap: 40px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease-out);
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 9vw, 72px);
+      font-weight: 300;
+      text-decoration: none;
+      color: var(--text);
+      opacity: 0.65;
+      transition: opacity 0.3s;
+    }
+
+    .mobile-menu a:hover { opacity: 1; }
+
+    /* ========================================
+       SECTION META TAGS
+    ======================================== */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-tag .num {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+    }
+
+    .section-tag .rule {
+      width: 36px;
+      height: 1px;
+      background: var(--text-dim);
+    }
+
+    .section-tag .label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ========================================
+       HERO
+    ======================================== */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 52px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-radial {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 65% 75% at 18% 62%,
+                  rgba(255,255,255,0.016) 0%, transparent 68%);
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-wordmark {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(96px, 23vw, 380px);
+      font-weight: 300;
+      line-height: 0.85;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    .hero-wordmark .line-wrap  { display: block; overflow: hidden; }
+    .hero-wordmark .line-inner {
+      display: block;
+      transform: translateY(115%);
+      animation: slideUp 1.3s var(--ease-out) 0.1s forwards;
+    }
+
+    .hero-row {
+      margin-top: 28px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-company-name {
+      font-family: var(--font-body);
+      font-size: clamp(12px, 1.4vw, 17px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 1s forwards;
+    }
+
+    .hero-statement {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.8vw, 36px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 1.15s forwards;
+      text-align: right;
+      max-width: 420px;
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 80px;
+      right: 52px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeIn 1s var(--ease-out) 2s forwards;
+    }
+
+    .scroll-cue-line {
+      width: 1px;
+      height: 56px;
+      background: var(--text-dim);
+      transform-origin: top;
+      animation: pulseDown 2s var(--ease-out) 2.5s infinite;
+    }
+
+    .scroll-cue-text {
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* ========================================
+       SECTION: POSITIONING
+    ======================================== */
+    #positioning {
+      padding: 140px 52px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      align-items: start;
+      border-top: 1px solid var(--border);
+    }
+
+    .pos-aside {
+      padding-top: 6px;
+      position: sticky;
+      top: 120px;
+    }
+
+    .pos-body { max-width: 700px; }
+
+    .pos-statement {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5.5vw, 80px);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 56px;
+    }
+
+    .pos-pillars {
+      border-left: 1px solid var(--border-mid);
+      padding-left: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .pos-pillar {
+      font-family: var(--font-body);
+      font-size: clamp(14px, 1.5vw, 17px);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    /* ========================================
+       SECTION: MANIFESTO
+    ======================================== */
+    #manifesto {
+      padding: 160px 52px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .manifesto-text {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 5.2vw, 76px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.2;
+      color: var(--text);
+      max-width: 940px;
+    }
+
+    .manifesto-credit {
+      margin-top: 52px;
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ========================================
+       MARQUEE TICKER
+    ======================================== */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-alt);
+      padding: 16px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+      width: max-content;
+    }
+
+    .marquee-item {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 0 32px;
+    }
+
+    /* ========================================
+       SECTION: CAPABILITIES
+    ======================================== */
+    #capabilities {
+      padding: 120px 52px;
+      background: var(--bg-alt);
+    }
+
+    .cap-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cap-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 100px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--border);
+      gap: 1px;
+      margin-top: 1px;
+    }
+
+    .cap-item {
+      background: var(--bg-alt);
+      padding: 52px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.5s var(--ease-out);
+    }
+
+    .cap-item:hover { background: #121212; }
+
+    .cap-idx {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .cap-name {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 2.8vw, 44px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .cap-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ========================================
+       SECTION: APPROACH
+    ======================================== */
+    #approach {
+      padding: 160px 52px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .approach-aside {
+      position: sticky;
+      top: 120px;
+      padding-top: 6px;
+    }
+
+    .approach-list { display: flex; flex-direction: column; }
+
+    .approach-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 28px;
+      padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .approach-item:first-child { border-top: 1px solid var(--border); }
+
+    .approach-n {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.5vw, 64px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--text-dim);
+    }
+
+    .approach-inner { padding-top: 6px; }
+
+    .approach-title {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.8vw, 38px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .approach-body {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+
+    /* ========================================
+       SECTION: IDENTITY
+    ======================================== */
+    #identity {
+      padding: 160px 52px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .identity-statement {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3.2vw, 50px);
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--text);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .identity-meta {
+      margin-top: 36px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      color: var(--text-dim);
+    }
+
+    /* ========================================
+       SECTION: CONTACT
+    ======================================== */
+    #contact {
+      padding: 120px 52px;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 72px;
+    }
+
+    .contact-heading {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 11vw, 168px);
+      font-weight: 300;
+      line-height: 0.9;
+      color: var(--text);
+    }
+
+    .contact-info {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 8px;
+    }
+
+    .contact-info-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .contact-email-link {
+      font-family: var(--font-body);
+      font-size: clamp(13px, 1.4vw, 17px);
+      font-weight: 300;
+      color: var(--text);
+      text-decoration: none;
+      opacity: 0.78;
+      transition: opacity 0.3s;
+    }
+
+    .contact-email-link:hover { opacity: 1; }
+
+    .contact-location-txt {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .contact-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-pitch {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.6vw, 34px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .form-input,
+    .form-textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border-mid);
+      padding: 12px 0;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text);
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s;
+      cursor: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(237, 233, 225, 0.38);
+    }
+
+    .form-textarea {
+      resize: none;
+      min-height: 96px;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--text-dim);
+    }
+
+    .form-submit {
+      align-self: flex-start;
+      background: transparent;
+      border: 1px solid var(--border-mid);
+      padding: 16px 44px;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text);
+      cursor: none;
+      transition: background 0.35s, border-color 0.35s;
+    }
+
+    .form-submit:hover {
+      background: rgba(237, 233, 225, 0.05);
+      border-color: rgba(237, 233, 225, 0.3);
+    }
+
+    .form-success {
+      display: none;
+      padding: 20px 0;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--text-muted);
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .form-success.visible { display: block; }
+    .form-success.shown   { opacity: 1; }
+
+    /* ========================================
+       SECTION: LEGAL
+    ======================================== */
+    #legal {
+      padding: 80px 52px;
+      border-top: 1px solid var(--border);
+    }
+
+    .legal-intro { margin-bottom: 48px; }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .legal-block h3 {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .legal-block p {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-dim);
+    }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+    footer {
+      padding: 36px 52px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-dim);
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 36px;
+    }
+
+    .footer-nav a {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-nav a:hover { color: var(--text); }
+
+    /* ========================================
+       SCROLL REVEAL
+    ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+
+    /* ========================================
+       KEYFRAME ANIMATIONS
+    ======================================== */
+    @keyframes slideUp {
+      from { transform: translateY(115%); }
+      to   { transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes pulseDown {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      45%  { transform: scaleY(1); transform-origin: top; }
+      55%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ========================================
+       RESPONSIVE
+    ======================================== */
+    @media (max-width: 960px) {
+      nav               { padding: 28px 28px; }
+      nav.scrolled      { padding: 18px 28px; }
+      .nav-links        { display: none; }
+      .nav-toggle       { display: flex; }
+
+      #hero             { padding: 0 28px 60px; }
+      .scroll-cue       { right: 28px; bottom: 60px; }
+      .hero-row         { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .hero-statement   { text-align: left; }
+
+      #positioning {
+        padding: 100px 28px;
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .pos-aside        { position: static; }
+
+      #manifesto        { padding: 100px 28px; }
+
+      #capabilities     { padding: 80px 28px; }
+      .cap-grid         { grid-template-columns: repeat(2, 1fr); }
+
+      #approach {
+        padding: 100px 28px;
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .approach-aside   { position: static; }
+
+      #identity         { padding: 100px 28px; }
+
+      #contact          { padding: 80px 28px; }
+      .contact-masthead { flex-direction: column; align-items: flex-start; gap: 32px; }
+      .contact-info     { text-align: left; }
+      .contact-body     { grid-template-columns: 1fr; gap: 52px; }
+
+      #legal            { padding: 64px 28px; }
+      .legal-grid       { grid-template-columns: 1fr; gap: 48px; }
+
+      footer            { padding: 28px 28px; flex-direction: column; gap: 20px; text-align: center; }
+
+      .mobile-menu      { padding: 0 28px; }
+    }
+
+    @media (max-width: 600px) {
+      .cap-grid         { grid-template-columns: 1fr; }
+      .approach-item    { grid-template-columns: 56px 1fr; gap: 20px; }
+      .footer-nav       { gap: 24px; }
+    }
+  </style>
 </head>
-<body class="bg-white text-slate-900 overflow-x-hidden flex flex-col min-h-screen">
+<body>
 
-    <!-- Navigation Header -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <!-- Branding -->
-                <a href="#home" class="nav-trigger flex items-center group">
-                    <div class="w-10 h-10 bg-slate-900 rounded flex items-center justify-center mr-3 shadow-lg group-hover:bg-slate-700 transition-all">
-                        <span class="text-white font-bold text-xl">G</span>
-                    </div>
-                    <div>
-                        <h1 class="text-lg font-bold tracking-tight text-slate-800 leading-tight">GRAY CONSULTING</h1>
-                        <p class="text-[9px] text-slate-500 font-bold tracking-[0.2em] uppercase leading-none">& Management LLC</p>
-                    </div>
-                </a>
+  <!-- Custom cursor -->
+  <div class="cursor"      id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-                <!-- Desktop Links -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="nav-trigger text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-widest">Home</a>
-                    <a href="#services" class="nav-trigger text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-widest">Services</a>
-                    <a href="#contact" class="nav-trigger text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-widest">Contact</a>
-                    <a href="#privacy" class="nav-trigger text-xs font-bold text-slate-400 hover:text-slate-900 transition-colors uppercase tracking-widest">Legal</a>
-                </div>
+  <!-- Scroll progress -->
+  <div class="scroll-bar" id="scrollBar"></div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="p-2 text-slate-600 focus:outline-none">
-                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Gray Consulting</a>
+    <ul class="nav-links">
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#capabilities" class="mob-link">Capabilities</a>
+    <a href="#approach"     class="mob-link">Approach</a>
+    <a href="#contact"      class="mob-link">Contact</a>
+  </div>
+
+  <!-- ============================================================
+       01  HERO
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-radial" id="heroRadial"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-wordmark" aria-label="Gray">
+        <span class="line-wrap">
+          <span class="line-inner">Gray</span>
+        </span>
+      </h1>
+
+      <div class="hero-row">
+        <p class="hero-company-name">Consulting &amp; Management LLC</p>
+        <p class="hero-statement">We shape<br>what's next.</p>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="scroll-cue-line"></div>
+      <span class="scroll-cue-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02  POSITIONING
+  ============================================================ -->
+  <section id="positioning">
+    <aside class="pos-aside reveal">
+      <div class="section-tag">
+        <span class="num">01</span>
+        <span class="rule"></span>
+        <span class="label">Perspective</span>
+      </div>
+    </aside>
+
+    <div class="pos-body">
+      <p class="pos-statement reveal d1">
+        We operate at the edge<br>of what's been defined.
+      </p>
+      <div class="pos-pillars">
+        <p class="pos-pillar reveal d2">Precision without rigidity.</p>
+        <p class="pos-pillar reveal d3">Imagination with purpose.</p>
+        <p class="pos-pillar reveal d4">Questions before answers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03  MANIFESTO
+  ============================================================ -->
+  <section id="manifesto">
+    <p class="manifesto-text reveal">
+      The most consequential work<br>rarely announces itself.
+    </p>
+    <p class="manifesto-credit reveal d3">— Gray Consulting &amp; Management</p>
+  </section>
+
+  <!-- Marquee ticker -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Strategy</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Digital</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Systems</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Products</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Gray Consulting &amp; Management</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Strategy</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Digital</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Systems</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Products</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Gray Consulting &amp; Management</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Strategy</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Digital</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Systems</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Products</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Gray Consulting &amp; Management</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Strategy</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Digital</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Systems</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Products</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Gray Consulting &amp; Management</span>
+      <span class="marquee-item">·</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       04  CAPABILITIES
+  ============================================================ -->
+  <section id="capabilities">
+    <div class="cap-header">
+      <h2 class="cap-title reveal">Capabilities</h2>
+      <div class="section-tag reveal d2">
+        <span class="num">02</span>
+        <span class="rule"></span>
+        <span class="label">What we bring</span>
+      </div>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap-item reveal">
+        <span class="cap-idx">01</span>
+        <h3 class="cap-name">Strategy</h3>
+        <p class="cap-desc">Clarity in complexity.</p>
+      </div>
+      <div class="cap-item reveal d1">
+        <span class="cap-idx">02</span>
+        <h3 class="cap-name">Digital</h3>
+        <p class="cap-desc">Built to perform.</p>
+      </div>
+      <div class="cap-item reveal d2">
+        <span class="cap-idx">03</span>
+        <h3 class="cap-name">Systems</h3>
+        <p class="cap-desc">Structure that scales.</p>
+      </div>
+      <div class="cap-item reveal d3">
+        <span class="cap-idx">04</span>
+        <h3 class="cap-name">Products</h3>
+        <p class="cap-desc">Ideas made real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05  APPROACH
+  ============================================================ -->
+  <section id="approach">
+    <aside class="approach-aside reveal">
+      <div class="section-tag">
+        <span class="num">03</span>
+        <span class="rule"></span>
+        <span class="label">Approach</span>
+      </div>
+    </aside>
+
+    <div class="approach-list">
+      <div class="approach-item reveal">
+        <span class="approach-n">01</span>
+        <div class="approach-inner">
+          <h3 class="approach-title">Question before build.</h3>
+          <p class="approach-body">Every engagement begins with deep inquiry. We resist the impulse to act before understanding.</p>
+        </div>
+      </div>
+
+      <div class="approach-item reveal d1">
+        <span class="approach-n">02</span>
+        <div class="approach-inner">
+          <h3 class="approach-title">Rigor meets intuition.</h3>
+          <p class="approach-body">Analytical precision and creative instinct are not opposites — they are collaborators.</p>
+        </div>
+      </div>
+
+      <div class="approach-item reveal d2">
+        <span class="approach-n">03</span>
+        <div class="approach-inner">
+          <h3 class="approach-title">Deliberate. Decisive.</h3>
+          <p class="approach-body">We move thoughtfully, then act with full commitment. Pace is a strategic choice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06  IDENTITY
+  ============================================================ -->
+  <section id="identity">
+    <p class="identity-statement reveal">
+      Gray Consulting and Management LLC<br>
+      is a privately held firm operating<br>
+      across disciplines and industries.
+    </p>
+    <p class="identity-meta reveal d3">United States &nbsp;&middot;&nbsp; Est. 2024</p>
+  </section>
+
+  <!-- ============================================================
+       07  CONTACT
+  ============================================================ -->
+  <section id="contact">
+    <div class="contact-masthead">
+      <h2 class="contact-heading reveal">Let's<br>Connect.</h2>
+      <div class="contact-info reveal d2">
+        <span class="contact-info-label">Direct</span>
+        <a href="mailto:contact@grayconsultingmanagement.com" class="contact-email-link">
+          contact@grayconsultingmanagement.com
+        </a>
+        <span class="contact-location-txt">United States</span>
+      </div>
+    </div>
+
+    <div class="contact-body">
+      <p class="contact-pitch reveal">
+        We're selective about the<br>
+        work we take on. Tell us<br>
+        what you're building.
+      </p>
+
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+        <div class="form-field reveal d1">
+          <label class="form-label" for="fname">Name</label>
+          <input class="form-input" type="text" id="fname" name="name"
+                 required placeholder="Your name" autocomplete="name">
         </div>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 py-6 px-6 space-y-4 shadow-xl">
-            <a href="#home" class="nav-trigger block text-slate-600 font-bold uppercase tracking-widest text-sm">Home</a>
-            <a href="#services" class="nav-trigger block text-slate-600 font-bold uppercase tracking-widest text-sm">Services</a>
-            <a href="#contact" class="nav-trigger block text-slate-600 font-bold uppercase tracking-widest text-sm">Contact</a>
-            <a href="#privacy" class="nav-trigger block text-slate-400 font-bold uppercase tracking-widest text-sm pt-4 border-t border-slate-50">Privacy & Terms</a>
+        <div class="form-field reveal d2">
+          <label class="form-label" for="femail">Email</label>
+          <input class="form-input" type="email" id="femail" name="email"
+                 required placeholder="your@email.com" autocomplete="email">
         </div>
+
+        <div class="form-field reveal d3">
+          <label class="form-label" for="fmsg">Message</label>
+          <textarea class="form-textarea" id="fmsg" name="message"
+                    required placeholder="What are you working on?" rows="4"></textarea>
+        </div>
+
+        <div class="reveal d4">
+          <button type="submit" class="form-submit">Send Message</button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          Message sent. We'll be in touch.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       08  LEGAL
+  ============================================================ -->
+  <section id="legal">
+    <div class="legal-intro">
+      <div class="section-tag">
+        <span class="num">05</span>
+        <span class="rule"></span>
+        <span class="label">Legal</span>
+      </div>
+    </div>
+
+    <div class="legal-grid">
+      <div class="legal-block">
+        <h3>Privacy Policy</h3>
+        <p>Gray Consulting and Management LLC does not use cookies or tracking technologies. Any information you voluntarily provide via our contact form is used solely to respond to your inquiry and is never shared with third parties. We are committed to handling your data with discretion and care.</p>
+      </div>
+      <div class="legal-block">
+        <h3>Terms of Service</h3>
+        <p>The information presented on this website is for general informational purposes only. Gray Consulting and Management LLC makes no representations regarding the completeness or accuracy of the content herein. All intellectual property on this site remains the exclusive property of the company.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <p class="footer-brand">&copy; 2026 Gray Consulting and Management LLC</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="#legal">Privacy</a>
+      <a href="#legal">Terms</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </footer>
 
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <section id="home" class="hero-gradient relative py-32 lg:py-52 text-white">
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 50px 50px;"></div>
-            </div>
-            <div class="relative max-w-5xl mx-auto px-4 text-center">
-                <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-slate-300 text-[10px] font-bold mb-8 border border-white/10 uppercase tracking-[0.4em]">Strategy • Management • Insight</span>
-                <h2 class="serif text-5xl lg:text-8xl font-bold leading-tight mb-8">
-                    Setting a <br><span class="text-slate-400 italic font-light">New Standard</span> in Consulting
-                </h2>
-                <p class="text-lg lg:text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                    We help organizations transform ideas into action by aligning vision with execution, turning complex challenges into clear opportunities for growth.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-6">
-                    <a href="#contact" class="nav-trigger px-10 py-5 bg-white text-slate-900 rounded-xl font-bold text-lg hover:shadow-2xl transition-all active:scale-95">
-                        Get Started
-                    </a>
-                    <a href="#services" class="nav-trigger px-10 py-5 bg-transparent border-2 border-slate-700 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all active:scale-95">
-                        Our Capabilities
-                    </a>
-                </div>
-            </div>
-        </section>
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    'use strict';
 
-        <!-- Services Section -->
-        <section id="services" class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-20">
-                    <h2 class="text-4xl font-bold text-slate-900 mb-4 uppercase tracking-tight">Core Services</h2>
-                    <p class="text-slate-500 max-w-xl mx-auto">Focused on high-tier management and strategic consulting for organizations of all sizes.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                    <!-- Service 1 -->
-                    <div class="p-12 rounded-3xl bg-slate-50 hover:bg-slate-900 hover:text-white transition-all duration-500 group border border-slate-100">
-                        <div class="w-16 h-16 bg-slate-900 text-white rounded-xl flex items-center justify-center text-3xl mb-8 group-hover:bg-white group-hover:text-slate-900 transition-colors">
-                            <i class="fa-solid fa-chess-knight"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 italic serif">Strategic Advisory</h3>
-                        <p class="text-slate-500 group-hover:text-slate-300 mb-8 leading-relaxed">We help you shape a bold, future‑ready direction with comprehensive planning and market insights that fuel sustainable growth.</p>
-                        <ul class="space-y-3 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                            <li><i class="fa-solid fa-circle-check mr-2"></i> Vision Roadmap</li>
-                            <li><i class="fa-solid fa-circle-check mr-2"></i> Market Analysis</li>
-                        </ul>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="p-12 rounded-3xl bg-slate-50 hover:bg-slate-900 hover:text-white transition-all duration-500 group border border-slate-100">
-                        <div class="w-16 h-16 bg-slate-900 text-white rounded-xl flex items-center justify-center text-3xl mb-8 group-hover:bg-white group-hover:text-slate-900 transition-colors">
-                            <i class="fa-solid fa-sliders"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 italic serif">Management Assessment</h3>
-                        <p class="text-slate-500 group-hover:text-slate-300 mb-8 leading-relaxed">Our goal is to identify areas where management practices can be strengthened to drive better results and sustainable growth.</p>
-                        <ul class="space-y-3 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                            <li><i class="fa-solid fa-circle-check mr-2"></i> Efficiency Mapping</li>
-                            <li><i class="fa-solid fa-circle-check mr-2"></i> Resource Audit</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+    /* ─── CUSTOM CURSOR ──────────────────────────────────── */
+    const cursorDot  = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0;
+    let ringX  = 0, ringY  = 0;
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-slate-900">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl lg:flex min-h-[600px]">
-                    <div class="lg:w-1/3 bg-slate-800 text-white p-12 flex flex-col justify-between">
-                        <div>
-                            <h2 class="text-4xl font-bold mb-6 italic serif">Connect.</h2>
-                            <p class="text-slate-400 mb-10">Reach out for business proposals, management services, or general support inquiries.</p>
-                            <div class="space-y-8">
-                                <div class="flex items-center">
-                                    <i class="fa-solid fa-envelope mr-4 text-slate-500"></i>
-                                    <span class="text-sm font-medium">contact@grayconsultingmanagement.com</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fa-solid fa-globe mr-4 text-slate-500"></i>
-                                    <span class="text-sm font-medium">United States</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-20 pt-10 border-t border-slate-700">
-                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Gray Consulting & Management LLC</p>
-                        </div>
-                    </div>
-                    <div class="lg:w-2/3 p-12 lg:p-20 relative flex items-center">
-                        <!-- Success Message (Hidden initially) -->
-                        <div id="success-message" class="hidden absolute inset-0 bg-white z-10 flex flex-col items-center justify-center text-center p-12 success-fade">
-                            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mb-6">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Message Prepared</h3>
-                            <p class="text-slate-500 max-w-sm">We've generated an email draft for you. Please complete the send in your email application.</p>
-                            <button onclick="resetForm()" class="mt-8 text-sm font-bold text-slate-400 hover:text-slate-900 uppercase tracking-widest transition-colors">Send another message</button>
-                        </div>
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top  = mouseY + 'px';
+    });
 
-                        <!-- Main Form -->
-                        <form id="contact-form" class="space-y-8 w-full" onsubmit="handleContactSubmit(event)">
-                            <div class="grid md:grid-cols-2 gap-8">
-                                <div>
-                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Your Name</label>
-                                    <input type="text" id="form-name" required class="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-slate-50" placeholder="Full Name">
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Email Address</label>
-                                    <input type="email" id="form-email" required class="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-slate-50" placeholder="email@address.com">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Message</label>
-                                <textarea id="form-message" rows="5" required class="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-slate-50" placeholder="How can we assist you?"></textarea>
-                            </div>
-                            <button type="submit" class="w-full py-5 bg-slate-900 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl active:scale-[0.98]">
-                                Send Inquiry
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+    (function lerpRing() {
+      ringX += (mouseX - ringX) * 0.11;
+      ringY += (mouseY - ringY) * 0.11;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top  = ringY + 'px';
+      requestAnimationFrame(lerpRing);
+    })();
 
-        <!-- Privacy & Terms Section -->
-        <section id="privacy" class="py-24 bg-white border-t border-slate-100">
-            <div class="max-w-4xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold italic serif">Legal Disclosures</h2>
-                    <p class="text-slate-400 text-sm mt-2">Essential information for registration, verification, and responsible website use.</p>
-                </div>
-                
-                <div class="space-y-16">
-                    <!-- Privacy Policy -->
-                    <div id="policy-content">
-                        <h3 class="font-bold text-slate-900 mb-4 text-xs uppercase tracking-[0.3em] flex items-center">
-                            <span class="w-12 h-[1px] bg-slate-200 mr-4"></span> Privacy Policy
-                        </h3>
-                        <div class="text-slate-500 text-sm leading-relaxed space-y-4">
-                            <p>At Gray Consulting & Management LLC, your privacy is a top priority. We do not use persistent cookies for tracking or identifying visitors.</p>
-                            <p><strong>Information Collection:</strong> We only gather information you voluntarily provide through our contact form (name, email, message). This information is used exclusively to respond to your inquiries.</p>
-                            <p><strong>Data Sharing:</strong> We do not sell, rent, or share your contact information with third-party advertisers or data brokers. All data is processed in accordance with standard business privacy guidelines.</p>
-                        </div>
-                    </div>
+    document.querySelectorAll('a, button, .cap-item, input, textarea').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorDot.classList.add('hovering');
+        cursorRing.classList.add('hovering');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorDot.classList.remove('hovering');
+        cursorRing.classList.remove('hovering');
+      });
+    });
 
-                    <!-- Terms of Service -->
-                    <div id="terms-content">
-                        <h3 class="font-bold text-slate-900 mb-4 text-xs uppercase tracking-[0.3em] flex items-center">
-                            <span class="w-12 h-[1px] bg-slate-200 mr-4"></span> Terms of Service
-                        </h3>
-                        <div class="text-slate-500 text-sm leading-relaxed space-y-4">
-                            <p>By using this website, you agree to the following terms and conditions.</p>
-                            <p><strong>Professional Disclaimer:</strong> The content on this site is for general informational purposes. Gray Consulting and Management LLC provides consulting services under separate professional agreements. We are not liable for business decisions made solely based on website content.</p>
-                            <p><strong>Intellectual Property:</strong> All text, logos, and brand assets are the property of Gray Consulting and Management LLC. Unauthorized duplication is prohibited.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    /* ─── SCROLL PROGRESS ────────────────────────────────── */
+    const scrollBar = document.getElementById('scrollBar');
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-600 py-16 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
-                <div>
-                    <div class="flex items-center justify-center md:justify-start mb-4">
-                        <div class="w-8 h-8 bg-white rounded flex items-center justify-center mr-3 shadow-sm">
-                            <span class="text-slate-900 font-extrabold text-sm">G</span>
-                        </div>
-                        <span class="text-white font-bold uppercase tracking-tight text-lg">Gray Consulting</span>
-                    </div>
-                    <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-700">Strategic Management Solutions</p>
-                </div>
-                
-                <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 text-[10px] font-bold uppercase tracking-[0.3em]">
-                    <a href="#home" class="nav-trigger hover:text-white transition-colors">Top</a>
-                    <a href="#services" class="nav-trigger hover:text-white transition-colors">Services</a>
-                    <a href="#contact" class="nav-trigger hover:text-white transition-colors">Contact</a>
-                    <a href="#privacy" class="nav-trigger hover:text-white transition-colors">Privacy</a>
-                    <a href="#privacy" class="nav-trigger hover:text-white transition-colors">Terms</a>
-                </div>
-                
-                <div class="text-[10px] text-slate-800 font-bold uppercase tracking-widest">
-                    &copy; 2026 Gray Consulting and Management LLC
-                </div>
-            </div>
-        </div>
-    </footer>
+    function updateScrollProgress() {
+      const scrollTop = window.scrollY;
+      const docH      = document.documentElement.scrollHeight - window.innerHeight;
+      scrollBar.style.width = (docH > 0 ? (scrollTop / docH) * 100 : 0) + '%';
+    }
 
-    <!-- JS Controllers -->
-    <script>
-        // Custom link interceptor
-        document.querySelectorAll('.nav-trigger').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = href.substring(1) || 'home';
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        document.getElementById('mobile-menu').classList.add('hidden');
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                        history.pushState(null, null, '#' + targetId);
-                    }
-                }
-            });
-        });
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    const nav       = document.getElementById('nav');
+    let lastScrollY = 0;
+    let ticking     = false;
 
-        // Mobile Menu Toggle
-        document.getElementById('menu-toggle').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+    function updateNav() {
+      const sy = window.scrollY;
+      nav.classList.toggle('scrolled',    sy > 60);
+      if (sy > lastScrollY + 8 && sy > 200) nav.classList.add('hidden-nav');
+      else if (sy < lastScrollY - 8)         nav.classList.remove('hidden-nav');
+      lastScrollY = sy;
+      ticking = false;
+    }
 
-        // Contact Form Logic
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('form-name').value;
-            const email = document.getElementById('form-email').value;
-            const msg = document.getElementById('form-message').value;
-            
-            // Construct mailto link
-            const subject = encodeURIComponent(`Inquiry from ${name}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`);
-            const mailtoLink = `mailto:contact@grayconsultingmanagement.com?subject=${subject}&body=${body}`;
-            
-            // Open the email client
-            window.location.href = mailtoLink;
-            
-            // Show UI success state
-            document.getElementById('contact-form').classList.add('hidden');
-            document.getElementById('success-message').classList.remove('hidden');
+    window.addEventListener('scroll', () => {
+      updateScrollProgress();
+      if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
+    }, { passive: true });
+
+    /* ─── SMOOTH SCROLL ──────────────────────────────────── */
+    function closeMobileMenu() {
+      navToggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          nav.classList.remove('hidden-nav');
+          closeMobileMenu();
         }
+      });
+    });
 
-        function resetForm() {
-            document.getElementById('contact-form').reset();
-            document.getElementById('contact-form').classList.remove('hidden');
-            document.getElementById('success-message').classList.add('hidden');
+    /* ─── MOBILE MENU ────────────────────────────────────── */
+    const navToggle  = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
         }
-    </script>
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
 
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ─── HERO MOUSE PARALLAX ────────────────────────────── */
+    const heroRadial = document.getElementById('heroRadial');
+    document.addEventListener('mousemove', (e) => {
+      const xPct = (e.clientX / window.innerWidth  - 0.5) * 2;
+      const yPct = (e.clientY / window.innerHeight - 0.5) * 2;
+      heroRadial.style.transform = `translate(${xPct * 20}px, ${yPct * 14}px)`;
+    });
+
+    /* ─── CONTACT FORM ───────────────────────────────────── */
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const name    = document.getElementById('fname').value.trim();
+      const email   = document.getElementById('femail').value.trim();
+      const message = document.getElementById('fmsg').value.trim();
+
+      if (!name || !email || !message) return;
+
+      const subject = encodeURIComponent('Message from ' + name);
+      const body    = encodeURIComponent(
+        'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message
+      );
+
+      window.location.href =
+        'mailto:contact@grayconsultingmanagement.com?subject=' + subject + '&body=' + body;
+
+      const successEl = document.getElementById('formSuccess');
+      successEl.classList.add('visible');
+      requestAnimationFrame(() => requestAnimationFrame(() => successEl.classList.add('shown')));
+
+      document.getElementById('contactForm').reset();
+
+      setTimeout(() => {
+        successEl.classList.remove('shown');
+        setTimeout(() => successEl.classList.remove('visible'), 600);
+      }, 6000);
+    }
+  </script>
 </body>
 </html>
