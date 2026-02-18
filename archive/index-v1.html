@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gray Consulting and Management LLC | Professional Excellence</title>
+    <meta name="description" content="Strategic management and operational consulting services for professional enterprises.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        section {
+            scroll-margin-top: 5rem;
+        }
+        .nav-link-active {
+            color: #1e293b;
+            border-bottom: 2px solid #1e293b;
+        }
+        /* Success message animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .success-fade {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- Navigation Header -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Branding -->
+                <a href="#home" class="nav-trigger flex items-center group">
+                    <div class="w-10 h-10 bg-slate-900 rounded flex items-center justify-center mr-3 shadow-lg group-hover:bg-slate-700 transition-all">
+                        <span class="text-white font-bold text-xl">G</span>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold tracking-tight text-slate-800 leading-tight">GRAY CONSULTING</h1>
+                        <p class="text-[9px] text-slate-500 font-bold tracking-[0.2em] uppercase leading-none">& Management LLC</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-trigger text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-widest">Home</a>
+                    <a href="#services" class="nav-trigger text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-widest">Services</a>
+                    <a href="#contact" class="nav-trigger text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-widest">Contact</a>
+                    <a href="#privacy" class="nav-trigger text-xs font-bold text-slate-400 hover:text-slate-900 transition-colors uppercase tracking-widest">Legal</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="p-2 text-slate-600 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 py-6 px-6 space-y-4 shadow-xl">
+            <a href="#home" class="nav-trigger block text-slate-600 font-bold uppercase tracking-widest text-sm">Home</a>
+            <a href="#services" class="nav-trigger block text-slate-600 font-bold uppercase tracking-widest text-sm">Services</a>
+            <a href="#contact" class="nav-trigger block text-slate-600 font-bold uppercase tracking-widest text-sm">Contact</a>
+            <a href="#privacy" class="nav-trigger block text-slate-400 font-bold uppercase tracking-widest text-sm pt-4 border-t border-slate-50">Privacy & Terms</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="hero-gradient relative py-32 lg:py-52 text-white">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 50px 50px;"></div>
+            </div>
+            <div class="relative max-w-5xl mx-auto px-4 text-center">
+                <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-slate-300 text-[10px] font-bold mb-8 border border-white/10 uppercase tracking-[0.4em]">Strategy • Management • Insight</span>
+                <h2 class="serif text-5xl lg:text-8xl font-bold leading-tight mb-8">
+                    Setting a <br><span class="text-slate-400 italic font-light">New Standard</span> in Consulting
+                </h2>
+                <p class="text-lg lg:text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                    We help organizations transform ideas into action by aligning vision with execution, turning complex challenges into clear opportunities for growth.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <a href="#contact" class="nav-trigger px-10 py-5 bg-white text-slate-900 rounded-xl font-bold text-lg hover:shadow-2xl transition-all active:scale-95">
+                        Get Started
+                    </a>
+                    <a href="#services" class="nav-trigger px-10 py-5 bg-transparent border-2 border-slate-700 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all active:scale-95">
+                        Our Capabilities
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl font-bold text-slate-900 mb-4 uppercase tracking-tight">Core Services</h2>
+                    <p class="text-slate-500 max-w-xl mx-auto">Focused on high-tier management and strategic consulting for organizations of all sizes.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <!-- Service 1 -->
+                    <div class="p-12 rounded-3xl bg-slate-50 hover:bg-slate-900 hover:text-white transition-all duration-500 group border border-slate-100">
+                        <div class="w-16 h-16 bg-slate-900 text-white rounded-xl flex items-center justify-center text-3xl mb-8 group-hover:bg-white group-hover:text-slate-900 transition-colors">
+                            <i class="fa-solid fa-chess-knight"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 italic serif">Strategic Advisory</h3>
+                        <p class="text-slate-500 group-hover:text-slate-300 mb-8 leading-relaxed">We help you shape a bold, future‑ready direction with comprehensive planning and market insights that fuel sustainable growth.</p>
+                        <ul class="space-y-3 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                            <li><i class="fa-solid fa-circle-check mr-2"></i> Vision Roadmap</li>
+                            <li><i class="fa-solid fa-circle-check mr-2"></i> Market Analysis</li>
+                        </ul>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="p-12 rounded-3xl bg-slate-50 hover:bg-slate-900 hover:text-white transition-all duration-500 group border border-slate-100">
+                        <div class="w-16 h-16 bg-slate-900 text-white rounded-xl flex items-center justify-center text-3xl mb-8 group-hover:bg-white group-hover:text-slate-900 transition-colors">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 italic serif">Management Assessment</h3>
+                        <p class="text-slate-500 group-hover:text-slate-300 mb-8 leading-relaxed">Our goal is to identify areas where management practices can be strengthened to drive better results and sustainable growth.</p>
+                        <ul class="space-y-3 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                            <li><i class="fa-solid fa-circle-check mr-2"></i> Efficiency Mapping</li>
+                            <li><i class="fa-solid fa-circle-check mr-2"></i> Resource Audit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-slate-900">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl lg:flex min-h-[600px]">
+                    <div class="lg:w-1/3 bg-slate-800 text-white p-12 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6 italic serif">Connect.</h2>
+                            <p class="text-slate-400 mb-10">Reach out for business proposals, management services, or general support inquiries.</p>
+                            <div class="space-y-8">
+                                <div class="flex items-center">
+                                    <i class="fa-solid fa-envelope mr-4 text-slate-500"></i>
+                                    <span class="text-sm font-medium">contact@grayconsultingmanagement.com</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fa-solid fa-globe mr-4 text-slate-500"></i>
+                                    <span class="text-sm font-medium">United States</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-20 pt-10 border-t border-slate-700">
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Gray Consulting & Management LLC</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 p-12 lg:p-20 relative flex items-center">
+                        <!-- Success Message (Hidden initially) -->
+                        <div id="success-message" class="hidden absolute inset-0 bg-white z-10 flex flex-col items-center justify-center text-center p-12 success-fade">
+                            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mb-6">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Message Prepared</h3>
+                            <p class="text-slate-500 max-w-sm">We've generated an email draft for you. Please complete the send in your email application.</p>
+                            <button onclick="resetForm()" class="mt-8 text-sm font-bold text-slate-400 hover:text-slate-900 uppercase tracking-widest transition-colors">Send another message</button>
+                        </div>
+
+                        <!-- Main Form -->
+                        <form id="contact-form" class="space-y-8 w-full" onsubmit="handleContactSubmit(event)">
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Your Name</label>
+                                    <input type="text" id="form-name" required class="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-slate-50" placeholder="Full Name">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Email Address</label>
+                                    <input type="email" id="form-email" required class="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-slate-50" placeholder="email@address.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Message</label>
+                                <textarea id="form-message" rows="5" required class="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-slate-50" placeholder="How can we assist you?"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-5 bg-slate-900 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl active:scale-[0.98]">
+                                Send Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy & Terms Section -->
+        <section id="privacy" class="py-24 bg-white border-t border-slate-100">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold italic serif">Legal Disclosures</h2>
+                    <p class="text-slate-400 text-sm mt-2">Essential information for registration, verification, and responsible website use.</p>
+                </div>
+                
+                <div class="space-y-16">
+                    <!-- Privacy Policy -->
+                    <div id="policy-content">
+                        <h3 class="font-bold text-slate-900 mb-4 text-xs uppercase tracking-[0.3em] flex items-center">
+                            <span class="w-12 h-[1px] bg-slate-200 mr-4"></span> Privacy Policy
+                        </h3>
+                        <div class="text-slate-500 text-sm leading-relaxed space-y-4">
+                            <p>At Gray Consulting & Management LLC, your privacy is a top priority. We do not use persistent cookies for tracking or identifying visitors.</p>
+                            <p><strong>Information Collection:</strong> We only gather information you voluntarily provide through our contact form (name, email, message). This information is used exclusively to respond to your inquiries.</p>
+                            <p><strong>Data Sharing:</strong> We do not sell, rent, or share your contact information with third-party advertisers or data brokers. All data is processed in accordance with standard business privacy guidelines.</p>
+                        </div>
+                    </div>
+
+                    <!-- Terms of Service -->
+                    <div id="terms-content">
+                        <h3 class="font-bold text-slate-900 mb-4 text-xs uppercase tracking-[0.3em] flex items-center">
+                            <span class="w-12 h-[1px] bg-slate-200 mr-4"></span> Terms of Service
+                        </h3>
+                        <div class="text-slate-500 text-sm leading-relaxed space-y-4">
+                            <p>By using this website, you agree to the following terms and conditions.</p>
+                            <p><strong>Professional Disclaimer:</strong> The content on this site is for general informational purposes. Gray Consulting and Management LLC provides consulting services under separate professional agreements. We are not liable for business decisions made solely based on website content.</p>
+                            <p><strong>Intellectual Property:</strong> All text, logos, and brand assets are the property of Gray Consulting and Management LLC. Unauthorized duplication is prohibited.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-600 py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                <div>
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <div class="w-8 h-8 bg-white rounded flex items-center justify-center mr-3 shadow-sm">
+                            <span class="text-slate-900 font-extrabold text-sm">G</span>
+                        </div>
+                        <span class="text-white font-bold uppercase tracking-tight text-lg">Gray Consulting</span>
+                    </div>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-700">Strategic Management Solutions</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 text-[10px] font-bold uppercase tracking-[0.3em]">
+                    <a href="#home" class="nav-trigger hover:text-white transition-colors">Top</a>
+                    <a href="#services" class="nav-trigger hover:text-white transition-colors">Services</a>
+                    <a href="#contact" class="nav-trigger hover:text-white transition-colors">Contact</a>
+                    <a href="#privacy" class="nav-trigger hover:text-white transition-colors">Privacy</a>
+                    <a href="#privacy" class="nav-trigger hover:text-white transition-colors">Terms</a>
+                </div>
+                
+                <div class="text-[10px] text-slate-800 font-bold uppercase tracking-widest">
+                    &copy; 2026 Gray Consulting and Management LLC
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Controllers -->
+    <script>
+        // Custom link interceptor
+        document.querySelectorAll('.nav-trigger').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1) || 'home';
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        history.pushState(null, null, '#' + targetId);
+                    }
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Contact Form Logic
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const msg = document.getElementById('form-message').value;
+            
+            // Construct mailto link
+            const subject = encodeURIComponent(`Inquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`);
+            const mailtoLink = `mailto:contact@grayconsultingmanagement.com?subject=${subject}&body=${body}`;
+            
+            // Open the email client
+            window.location.href = mailtoLink;
+            
+            // Show UI success state
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
+        }
+
+        function resetForm() {
+            document.getElementById('contact-form').reset();
+            document.getElementById('contact-form').classList.remove('hidden');
+            document.getElementById('success-message').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
