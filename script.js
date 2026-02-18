@@ -41,52 +41,19 @@ function updateScrollProgress() {
   scrollBar.style.width = (docH > 0 ? (scrollTop / docH) * 100 : 0) + '%';
 }
 
-/* ─── NAVIGATION ─────────────────────────────────────── */
-const nav       = document.getElementById('nav');
-let lastScrollY = 0;
-let ticking     = false;
-
-function updateNav() {
-  const sy = window.scrollY;
-  nav.classList.toggle('scrolled',    sy > 60);
-  if (sy > lastScrollY + 8 && sy > 200) nav.classList.add('hidden-nav');
-  else if (sy < lastScrollY - 8)         nav.classList.remove('hidden-nav');
-  lastScrollY = sy;
-  ticking = false;
-}
-
 window.addEventListener('scroll', () => {
   updateScrollProgress();
-  if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
 }, { passive: true });
 
 /* ─── SMOOTH SCROLL ──────────────────────────────────── */
-function closeMobileMenu() {
-  navToggle.classList.remove('open');
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     const target = document.querySelector(link.getAttribute('href'));
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
-      nav.classList.remove('hidden-nav');
-      closeMobileMenu();
     }
   });
-});
-
-/* ─── MOBILE MENU ────────────────────────────────────── */
-const navToggle  = document.getElementById('navToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-
-navToggle.addEventListener('click', () => {
-  const isOpen = navToggle.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
 /* ─── SCROLL REVEAL ──────────────────────────────────── */
