@@ -107,136 +107,6 @@ body::after {
 }
 
 /* ========================================
-   NAVIGATION
-   Fix: white-space + flex-shrink prevent
-   logo/links from ever overlapping on load.
-   A mid-range breakpoint (1100px) reduces
-   gap before the mobile toggle kicks in.
-======================================== */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 36px 52px;
-  transition: padding 0.5s var(--ease-out), background 0.5s,
-              transform 0.5s var(--ease-out), border-color 0.5s;
-  border-bottom: 1px solid transparent;
-}
-
-nav.scrolled {
-  padding: 22px 52px;
-  background: rgba(8, 8, 8, 0.88);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom-color: var(--border);
-}
-
-nav.hidden-nav {
-  transform: translateY(-100%);
-}
-
-.nav-logo {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--text);
-  opacity: 0.65;
-  transition: opacity 0.3s;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.nav-logo:hover { opacity: 1; }
-
-.nav-links {
-  display: flex;
-  gap: 44px;
-  list-style: none;
-  flex-shrink: 0;
-}
-
-.nav-links a {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--text-muted);
-  transition: color 0.3s;
-  white-space: nowrap;
-}
-
-.nav-links a:hover { color: var(--text); }
-
-/* Mobile toggle */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: none;
-  padding: 4px;
-  flex-shrink: 0;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 22px;
-  height: 1px;
-  background: var(--text);
-  transition: transform 0.35s var(--ease-out), opacity 0.35s;
-}
-
-.nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-/* Mobile menu overlay */
-.mobile-menu {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  background: var(--bg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0 52px;
-  gap: 40px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s var(--ease-out);
-}
-
-.mobile-menu.open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.mobile-menu a {
-  font-family: var(--font-display);
-  font-size: clamp(40px, 9vw, 72px);
-  font-weight: 300;
-  text-decoration: none;
-  color: var(--text);
-  opacity: 0.65;
-  transition: opacity 0.3s;
-}
-
-.mobile-menu a:hover { opacity: 1; }
-
-/* ========================================
    SECTION META TAGS
 ======================================== */
 .section-tag {
@@ -925,19 +795,7 @@ footer {
    RESPONSIVE
 ======================================== */
 
-/* Mid-range: reduce nav gap before mobile toggle kicks in */
-@media (max-width: 1100px) {
-  nav { padding: 28px 36px; }
-  nav.scrolled { padding: 18px 36px; }
-  .nav-links { gap: 28px; }
-}
-
 @media (max-width: 960px) {
-  nav               { padding: 28px 28px; }
-  nav.scrolled      { padding: 18px 28px; }
-  .nav-links        { display: none; }
-  .nav-toggle       { display: flex; }
-
   #hero             { padding: 0 28px 60px; }
   .scroll-cue       { right: 28px; bottom: 60px; }
   .hero-row         { flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -973,8 +831,6 @@ footer {
   .legal-grid       { grid-template-columns: 1fr; gap: 48px; }
 
   footer            { padding: 28px 28px; flex-direction: column; gap: 20px; text-align: center; }
-
-  .mobile-menu      { padding: 0 28px; }
 }
 
 @media (max-width: 600px) {
