@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Polar Balance</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #141414;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e4de;
+      --muted: rgba(232,228,222,0.45);
+      --accent: #b8c5d0;
+      --highlight: #d4e0e8;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 2.25rem 4rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    header .brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    header .separator { color: var(--muted); font-size: 0.8rem; }
+
+    header .doc-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 4rem 7rem;
+    }
+
+    .title-block {
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .title-block h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.25rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .disclaimer-banner {
+      background: var(--surface);
+      border: 1px solid rgba(180,200,210,0.2);
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 3.5rem;
+      border-radius: 2px;
+    }
+
+    .disclaimer-banner p {
+      font-size: 0.9rem;
+      color: var(--highlight);
+      line-height: 1.65;
+    }
+
+    .disclaimer-banner strong {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    section { margin-bottom: 3rem; }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: rgba(232,228,222,0.8);
+      margin-bottom: 0.85rem;
+      font-size: 0.975rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0.85rem;
+    }
+
+    ul li {
+      font-size: 0.975rem;
+      color: rgba(232,228,222,0.8);
+      padding: 0.3rem 0 0.3rem 1.25rem;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 0.85rem;
+      font-size: 0.9rem;
+    }
+
+    .services-table th {
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 1rem 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .services-table td {
+      color: rgba(232,228,222,0.8);
+      padding: 0.75rem 1rem 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .services-table tr:last-child td { border-bottom: none; }
+
+    .services-table td:first-child {
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      padding-right: 1.5rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(180,200,210,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.8rem; color: var(--muted); margin: 0; }
+    footer nav { display: flex; gap: 2rem; }
+
+    footer nav a {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: none;
+    }
+
+    footer nav a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      header, footer { padding: 1.5rem 1.75rem; }
+      main { padding: 3rem 1.75rem 5rem; }
+      .services-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="brand">Polar Balance</span>
+    <span class="separator">—</span>
+    <span class="doc-label">Privacy Policy</span>
+  </header>
+
+  <main>
+
+    <div class="title-block">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective Date: March 5, 2026 &nbsp;·&nbsp; Last Updated: March 5, 2026</p>
+    </div>
+
+    <div class="disclaimer-banner">
+      <strong>Not a Medical Tool</strong>
+      <p>Polar Balance is a personal mood and habit tracking application. It is not a medical device, diagnostic tool, or treatment for bipolar disorder or any other mental health condition. Nothing in this app or these documents constitutes medical advice. Always consult a qualified healthcare professional for diagnosis, treatment, or guidance regarding mental health.</p>
+    </div>
+
+    <section>
+      <h2>1. Who We Are</h2>
+      <p>Polar Balance is developed and operated by Gray Consulting &amp; Management LLC ("we," "us," or "our"). Questions about this policy can be directed to <a href="mailto:contact@grayconsultingmanagement.com">contact@grayconsultingmanagement.com</a>.</p>
+    </section>
+
+    <section>
+      <h2>2. What Information We Collect</h2>
+      <p>We collect only what is necessary to operate the app:</p>
+      <ul>
+        <li><strong>Account information</strong> — depending on how you sign in, this may include your email address, a display name, or a unique identifier provided by Google or Apple. We never receive your Google or Apple account password.</li>
+        <li><strong>App data you enter</strong> — mood logs, habit entries, notes, and any other content you choose to record within the app.</li>
+        <li><strong>Guest mode</strong> — if you use the app without signing in, no account information is collected. Your data remains on your device only and is never transmitted to our servers.</li>
+      </ul>
+      <p>We do not collect payment information, precise location data, contact lists, or health records from third parties. We do not use Firebase Analytics, Firebase Crashlytics, or any third-party advertising SDK.</p>
+    </section>
+
+    <section>
+      <h2>3. How Your Data Is Stored</h2>
+      <p>Polar Balance uses a <strong>local-first storage model</strong>. All data you enter is stored on your device by default and remains fully accessible offline. Your data does not leave your device unless you explicitly choose otherwise.</p>
+      <p><strong>Cloud sync is entirely optional.</strong> If you choose to enable it, your data is synced to Firebase (Google's cloud infrastructure) and associated with your account, allowing access across multiple devices. Enabling cloud sync requires signing in.</p>
+      <p>You may disable cloud sync or delete your account at any time. Upon account deletion, all cloud-stored data is permanently removed from our servers (see §7).</p>
+    </section>
+
+    <section>
+      <h2>4. How We Use Your Information</h2>
+      <p>Your data is used solely to:</p>
+      <ul>
+        <li>Provide and maintain the core functionality of Polar Balance.</li>
+        <li>Authenticate your account and, if cloud sync is enabled, keep your data consistent across your devices.</li>
+        <li>Respond to support requests or account deletion inquiries you initiate.</li>
+      </ul>
+      <p>We do not use your data to build advertising profiles, conduct marketing campaigns, sell or license data to third parties, or perform any form of clinical or medical research.</p>
+    </section>
+
+    <section>
+      <h2>5. Third-Party Services</h2>
+      <p>Polar Balance integrates with the following third-party services. Each is governed by its own privacy policy, linked below.</p>
+
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Purpose</th>
+            <th>Privacy Policy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Firebase (Google)</td>
+            <td>Authentication; optional cloud storage and sync</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+          </tr>
+          <tr>
+            <td>Google Sign-In</td>
+            <td>Optional sign-in method via your Google account</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+          </tr>
+          <tr>
+            <td>Sign in with Apple</td>
+            <td>Optional sign-in method via your Apple ID</td>
+            <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>When you use Google Sign-In or Sign in with Apple, those services may share a name, email address, or unique identifier with us solely for authentication purposes. Apple's private email relay is supported — you may use a hidden email address if you prefer not to share your real one.</p>
+      <p>Beyond the services listed above, we do not integrate any third-party analytics, crash reporting, or advertising tools.</p>
+    </section>
+
+    <section>
+      <h2>6. Data Sharing</h2>
+      <p>We do not sell, rent, or share your personal information with third parties, except:</p>
+      <ul>
+        <li>With the service providers listed in §5, strictly to the extent necessary to operate the app.</li>
+        <li>If required by law, valid legal process, or to protect the rights and safety of users or others.</li>
+        <li>In connection with a business transfer, merger, or acquisition — in which case you will be notified in advance and your rights under this policy will be preserved.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Your Rights and Data Deletion</h2>
+      <p>You have the right to access, correct, export, or delete the personal data we hold about you. To exercise any of these rights, contact us at <a href="mailto:contact@grayconsultingmanagement.com">contact@grayconsultingmanagement.com</a>. We will respond within 30 days.</p>
+      <ul>
+        <li><strong>Local data</strong> — delete all on-device data at any time by uninstalling the app or using the in-app reset option.</li>
+        <li><strong>Cloud data</strong> — if cloud sync is enabled, contact us to request permanent deletion of all associated server-side data.</li>
+        <li><strong>Account deletion</strong> — removes your authentication record and all synced cloud data from our servers.</li>
+      </ul>
+      <p>Depending on your jurisdiction — including the European Union (GDPR), United Kingdom, Canada (PIPEDA), and California (CCPA/CPRA) — you may have additional rights such as data portability or the right to restrict certain processing. We will honor all valid requests in accordance with applicable law.</p>
+    </section>
+
+    <section>
+      <h2>8. Data Security</h2>
+      <p>Local data is stored using your device's native secure storage. Cloud data, when sync is enabled, is protected by Firebase's encryption in transit (TLS) and at rest. You are responsible for maintaining the confidentiality of your account credentials. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security.</p>
+    </section>
+
+    <section>
+      <h2>9. Children's Privacy</h2>
+      <p>Polar Balance is not directed at children under the age of 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with their information, please contact us and we will promptly delete it.</p>
+    </section>
+
+    <section>
+      <h2>10. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Continued use of the app after changes are posted constitutes acceptance of the revised policy. The "Last Updated" date at the top of this page reflects the most recent revision.</p>
+    </section>
+
+    <section>
+      <h2>11. Contact</h2>
+      <p>For any questions or concerns about this Privacy Policy:<br>
+      <a href="mailto:contact@grayconsultingmanagement.com">contact@grayconsultingmanagement.com</a><br>
+      Gray Consulting &amp; Management LLC, United States</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gray Consulting &amp; Management LLC</p>
+    <nav>
+      <a href="/PolarBalance/privacy">Privacy</a>
+      <a href="/PolarBalance/terms">Terms</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
