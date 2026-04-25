@@ -73,7 +73,7 @@
 /* ── Human × Machine section ── */
 .hm-intro { max-width:680px; }
 .hm-headline {
-  font-size:clamp(38px,4vw,60px); font-weight:400;
+  font-size:clamp(34px,8vw,48px); font-weight:400;
   letter-spacing:-.03em; line-height:1.08; color:var(--fg);
   margin-bottom:16px;
 }
@@ -214,18 +214,6 @@
 }
 [data-theme="dark"] .code-pill { color:#0A0A0A; }
 
-.hero-terminal {
-  font-family:'JetBrains Mono',monospace; font-size:13px;
-  color:var(--mute); margin-bottom:36px; letter-spacing:.02em;
-}
-.t-user { color:var(--signal); }
-.t-host { color:var(--dim); }
-.t-cursor {
-  display:inline-block; width:8px; height:15px;
-  background:var(--signal); vertical-align:middle; margin-left:2px;
-  animation:blink 1.1s steps(1) infinite;
-}
-
 .hero-sub {
   font-size:18px; line-height:1.65; color:var(--dim);
   max-width:600px; margin-bottom:44px;
@@ -341,7 +329,7 @@
 .section-label .num { color:var(--signal); }
 .section-label .line { flex:1; height:1px; background:var(--border); }
 .section-title {
-  font-size:clamp(40px,4.2vw,64px); font-weight:500;
+  font-size:clamp(34px,8vw,48px); font-weight:500;
   letter-spacing:-.035em; line-height:1.04; color:var(--fg);
   margin-bottom:16px;
 }
@@ -553,7 +541,7 @@
 .contact { padding:96px 0; border-bottom:1px solid var(--border); }
 .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; }
 .contact-title {
-  font-size:clamp(40px,4.2vw,64px); font-weight:500;
+  font-size:clamp(34px,8vw,48px); font-weight:500;
   letter-spacing:-.035em; line-height:1.05; color:var(--fg); margin-bottom:20px;
 }
 .contact-title em { font-style:italic; font-weight:400; color:var(--dim); }
@@ -724,14 +712,9 @@
         <span class="hero-tagline-text">marketers who code <span>/</span> coders who write</span>
       </div>
 
-      <div class="hero-terminal" aria-label="Terminal prompt: building marketing systems">
-        <span class="t-user">gray</span><span class="t-host">@studio</span><span style="color:var(--mute)">:~$</span>&nbsp;<span id="heroTyped"></span><span class="t-cursor" aria-hidden="true"></span>
-      </div>
-
       <p class="hero-sub">
-        We're marketers who code — and coders who think in campaigns.
-        We build the Claude projects, GitHub workflows, tone-of-voice bots,
-        and content systems that turn your marketing from a service desk into an operating system.
+        We build the content systems, Claude workflows, and launch ops that turn your marketing
+        from a service desk into an operating system.
       </p>
 
       <div class="hero-ctas">
@@ -742,7 +725,6 @@
           See our work
         </button>
       </div>
-      <span class="hand-note" aria-hidden="true"><span class="spark">✦</span> still human, we promise</span>
 
     </div><!-- /.hero-content -->
 
@@ -831,15 +813,15 @@
     </div>
     <div class="hm-intro">
       <h2 class="hm-headline">
-        A person makes the call.<br>
-        <span class="hm-machine">The machine</span> does the reps.
+        A person makes the <span class="hm-machine">creative call</span>.<br>
+        The machine does the reps.
       </h2>
       <p class="hm-sub">
         We don't believe in AI-only marketing. It sounds like everyone else.
         And we don't believe in human-only either. It can't keep up.
         So we run on a joint system.
       </p>
-      <span class="hand-note" aria-hidden="true"><span class="spark">✦</span> turns out you need both </span>
+      <span class="hand-note" aria-hidden="true"><span class="spark">✦</span> still human, we promise</span>
     </div>
   </div>
 
@@ -1258,17 +1240,6 @@ toggle.addEventListener('click', () => {
   const cur = document.documentElement.getAttribute('data-theme') || 'light';
   applyTheme(cur === 'dark' ? 'light' : 'dark');
 });
-
-/* ── Hero typewriter ── */
-(function() {
-  const text = 'building marketing systems';
-  const el   = document.getElementById('heroTyped');
-  let i = 0;
-  setTimeout(function type() {
-    el.textContent = text.slice(0, i++);
-    if (i <= text.length) setTimeout(type, 36);
-  }, 700);
-})();
 
 /* ── Hero stats counter (removed) ── */
 
